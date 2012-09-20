@@ -1,3 +1,10 @@
+"""
+Think Stats Exercise 1-3.
+
+Evaluate the total number of pregnancies, live births, first births, other
+births, etc., in the given dataset.
+"""
+
 import survey
 import sys
 
