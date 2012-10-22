@@ -22,8 +22,19 @@ if __name__ == '__main__':
     table = survey.Pregnancies()
     table.ReadRecords(data_dir)
     
+    # Part 1
     live_pmf = Pmf.MakePmfFromList([prg.prglength for prg in table.records])
-    new_pmf = utils.remaining_lifetime(live_pmf, 39)
-    
+    new_pmf = utils.remaining_lifetime(live_pmf, 38)
     print 'Probability that a live birth will be in Week 39 if not born '\
-        'prior to Week 39:', new_pmf.Prob(39)
+        'prior to Week 39:', new_pmf.Prob(38)
+        
+    # Part 2 isn't really a meaningful task if I'm right in my approach of
+    # using the survival analysis approach, since then Part 1 was just a
+    # special use case. Let's demonstrate some usage.
+    new_pmf = utils.remaining_lifetime(live_pmf, 24)
+    print 'Probability that a live birth will be in Week 25 if not born '\
+        'prior to Week 39:', new_pmf.Prob(24)
+
+    new_pmf = utils.remaining_lifetime(live_pmf, 49)
+    print 'Probability that a live birth will be in Week 50 if not born '\
+        'prior to Week 39:', new_pmf.Prob(49)
