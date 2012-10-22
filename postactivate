@@ -1,0 +1,5 @@
+#!/bin/bash
+# This hook is run after this virtualenv is activated.
+
+# Copy this file to path/to/virtualenv/bin/postactivate
+export PYTHONPATH="/Users/jboyd/Dropbox/think_stats/":$PYTHONPATH
