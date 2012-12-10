@@ -2,3 +2,5 @@ official_code/*
 data/*
 *.pyc
 .idea
+*.pdf
+*.png
