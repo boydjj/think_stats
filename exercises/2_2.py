@@ -13,7 +13,7 @@ See README.md for more info.
 """
 import sys
 
-from first import partition_births
+from my_first import partition_births
 import survey
 from thinkstats import Mean, Var
 from utils import std_dev

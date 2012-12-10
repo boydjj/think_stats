@@ -9,7 +9,7 @@ import sys
 
 import Pmf
 import survey
-import first
+import my_first
 
 def prob_in_weeks(pmf, start, end):
     prob_sum = 0
@@ -26,8 +26,8 @@ if __name__ == '__main__':
     data_dir = sys.argv[1]
     table = survey.Pregnancies()
     table.ReadRecords(data_dir)
-    first_births, other_births = first.partition_births(table)
-    
+    first_births, other_births = my_first.partition_births(table)
+
     live_pmf = Pmf.MakePmfFromList([prg.prglength for prg in table.records])
     first_pmf = Pmf.MakePmfFromList([prg.prglength for prg in first_births.records])
     other_pmf = Pmf.MakePmfFromList([prg.prglength for prg in other_births.records])
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     print 'Early probability (others):', prob_early_other * 100
     print 'Relative risk of being early (first vs. other):', prob_early_first / prob_early_other
     print
-    
+
     prob_on_time_first = prob_on_time(first_pmf)
     prob_on_time_other = prob_on_time(other_pmf)
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     print 'On-time probability (others):', prob_on_time_other * 100
     print 'Relative risk of being on-time (first vs. other):', prob_on_time_first / prob_on_time_other
     print
-    
+
     prob_late_first = prob_late(first_pmf)
     prob_late_other = prob_late(other_pmf)
 
