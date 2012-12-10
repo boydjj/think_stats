@@ -8,20 +8,20 @@ Week x, given that it was not born prior to Week x.
 3. Plot this value as a function of x for first babies and others.
 """
 import sys
+from matplotlib import pyplot
 
-import Pmf
 import survey
+import descriptive
 
-from first import partition_births
+from my_first import partition_births
 import utils
 
+
 def _print_survival_analysis(week, table, label):
-    live_pmf = Pmf.MakePmfFromList([prg.prglength for prg in table.records])
-    new_pmf = utils.remaining_lifetime(live_pmf, week)
+    new_pmf = utils.remaining_lifetime(table.pmf, week)
     print 'Probability that a live birth will be in Week {week_num} if not born '\
         'prior to Week {week_num} ({label}):'.format(week_num=week, label=label),\
         new_pmf.Prob(week)
-
 
 # On first blush, this is really just another survival analysis problem. So
 # we build a Pmf.Pmf for babies' births and use the same kind of analysis
@@ -31,6 +31,9 @@ if __name__ == '__main__':
     table = survey.Pregnancies()
     table.ReadRecords(data_dir)
     firsts, others = partition_births(table)
+
+    descriptive.Process(firsts, 'firsts')
+    descriptive.Process(others, 'others')
 
     # Part 1 - conditional probability that a baby will be born in week 39
     # Relevant output from official code:
@@ -48,3 +51,6 @@ if __name__ == '__main__':
     # 41 0.511261261261 others
     _print_survival_analysis(41, firsts, 'firsts')
     _print_survival_analysis(41, others, 'others')
+
+
+    pyplot.clf()
