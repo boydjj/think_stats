@@ -16,11 +16,11 @@ def std_dev(seq, mean=None, var=None):
         var = thinkstats.Var(seq, mean)
 
     return math.sqrt(var)
-    
+
 def mode(hist):
     """
     Think Stats Exercise 2-3.
-    
+
     Given a Pmf.Hist object, find the mode of its values.
     """
     max_freq = None
@@ -34,7 +34,7 @@ def mode(hist):
 def all_modes(hist):
     """
     Think Stats Exercise 2-3.
-    
+
     Given a Pmf.Hist object, return a list of (value, frequency) pairs
     in descending order of frequency.
     """
@@ -44,10 +44,10 @@ def all_modes(hist):
 def remaining_lifetime(pmf, age):
     """
     Think Stats Exercise 2-4.
-    
+
     Given a Pmf.Pmf object of lifetimes and an age, return a new Pmf.Pmf that
     represents the distribution of remaining lifetimes.
-    
+
     Example pop data: [1, 2, 2, 3, 3, 3, 3, 4, 5]
     """
     new_pmf = pmf.Copy()
@@ -60,7 +60,7 @@ def remaining_lifetime(pmf, age):
 def pmf_mean(pmf):
     """
     Think Stats Exercise 2-5.
-    
+
     Given a Pmf.Pmf object, compute the mean of its values.
     """
     return sum([val * prob for val, prob in pmf.Items()])
@@ -68,9 +68,9 @@ def pmf_mean(pmf):
 def pmf_var(pmf):
     """
     Think Stats Exercise 2-5.
-    
+
     Given a Pmf.Pmf object, compute the variance of its values.
-    """    
+    """
     # var = 0
     # mean = pmf_mean(pmf)
     # for val, prob in pmf.Items():
