@@ -53,7 +53,7 @@ def remaining_lifetime(pmf, age):
     new_pmf = pmf.Copy()
     for val in pmf.Values():
         if val < age:
-            new_pmf.Incr(val, -1 * new_pmf.Prob(val))
+            new_pmf.Remove(val)
     new_pmf.Normalize()
     return new_pmf
 
